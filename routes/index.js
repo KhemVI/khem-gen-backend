@@ -1,7 +1,8 @@
 
 import express from 'express';
-import { router as pigRouter } from './pig.js';
-import { router as catRouter } from './cat.js';
+import { router as pigRouter } from './pigRouter.js';
+import { router as catRouter } from './catRouter.js';
+import { router as mailRouter } from './mailRouter.js';
 
 const router = express.Router()
 
@@ -20,11 +21,12 @@ const router = express.Router()
  *               type: string
  *               example: Hello, world! 2
  */
-router.get('/hello', (req, res) => {
-  res.json('Hello, world!');
+router.get('/', (req, res) => {
+  res.json('Hello, world! This is API');
 });
 
 router.use('/pig', pigRouter);
 router.use('/cat', catRouter);
-// router.use('/data-after-login', [authentication, verifyStaffRole], dataAfterLoginRouter);
+router.use('/mail', mailRouter);
+
 export default router;
