@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+.env
+.
+app.log
+migration/index.txt
+
+public/*
