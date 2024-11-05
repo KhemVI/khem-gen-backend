@@ -4,11 +4,9 @@ router.get('/', getCat);
 
 export async function getCat(req, res, next) {
   try {
+    const { query } = req;
     res.status(200).send({
-      data: [
-        { name: 'cat1', weight: 8 },
-        { name: 'cat2', weight: 6.5 }
-      ],
+      data: { name: 'cat1', weight: query.weight || 8 },
       message: "success",
     });
   } catch (err) {
